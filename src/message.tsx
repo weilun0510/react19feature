@@ -1,29 +1,36 @@
 import { Tent, Inbox } from 'lucide-react';
 import { use } from 'react';
-import { getMessage } from './api';
+import { getMessage } from '@/api';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-const Message = (props: { promise?: ReturnType<typeof getMessage> }) => {
-  if (!props.promise) {
+type MessageProps = {
+  promise?: ReturnType<typeof getMessage>;
+};
+
+function Message({ promise }: MessageProps) {
+  if (!promise) {
     return (
-      <div className="border border-gray-200 dark:border-0 dark:inset-ring dark:inset-ring-white/10 p-4">
-        <Inbox />
-        <div className="mt-2 text-sm">no data.</div>
-      </div>
+      <Card className="border-dashed border-sky-200 bg-sky-50/80 text-slate-900">
+        <CardContent className="flex items-center gap-3 pt-6 text-sm text-slate-600">
+          <Inbox className="size-4 text-sky-500" />
+          还没有异步结果，先点击上面的按钮创建一个 promise。
+        </CardContent>
+      </Card>
     );
   }
 
-  const message = use(props.promise);
+  const message = use(promise);
   return (
-    <div className="flex border border-gray-200 dark:border-0 dark:inset-ring dark:inset-ring-white/10 p-4 items-start">
-      <Tent />
-      <div className="flex-1 ml-3">
-        <div>React introduction</div>
-        <div className="text-sm leading-6 mt-2 text-gray-600 dark:text-gray-400">
-          {message.value}
-        </div>
-      </div>
-    </div>
+    <Card className="border-sky-100 bg-white/90 text-slate-900 shadow-sm shadow-sky-100/70">
+      <CardHeader className="flex flex-row items-center gap-3 space-y-0">
+        <Tent className="size-5 text-sky-500" />
+        <CardTitle className="text-lg">最终结果</CardTitle>
+      </CardHeader>
+      <CardContent className="text-sm leading-7 text-slate-600">
+        {message.value}
+      </CardContent>
+    </Card>
   );
-};
+}
 
 export default Message;
