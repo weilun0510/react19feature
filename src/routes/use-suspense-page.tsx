@@ -15,13 +15,13 @@ import {
 import { Separator } from '@/components/ui/separator';
 
 function UseSuspensePage() {
-  // const [promise, setPromise] = useState<ReturnType<typeof getMessage>>();
+  const [promise, setPromise] = useState<ReturnType<typeof getMessage>>();
 
   // 初始化时，先设置一个空的 promise，Message就不用判断 promise 是否为空了
   // 瑕疵就是初始化时也不可避免的显示了 Skeleton 组件
-  const [promise, setPromise] = useState<ReturnType<typeof getMessage>>(
-    Promise.resolve({ value: '' }),
-  );
+  // const [promise, setPromise] = useState<ReturnType<typeof getMessage>>(
+  //   Promise.resolve({ value: '' }),
+  // );
 
   return (
     <DemoShell
