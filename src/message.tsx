@@ -13,7 +13,7 @@ function Message({ promise }: MessageProps) {
       <Card className="border-dashed border-sky-200 bg-sky-50/80 text-slate-900">
         <CardContent className="flex items-center gap-3 pt-6 text-sm text-slate-600">
           <Inbox className="size-4 text-sky-500" />
-          还没有异步结果，先点击上面的按钮创建一个 promise。
+          还没有异步结果，先创建一个 promise。
         </CardContent>
       </Card>
     );

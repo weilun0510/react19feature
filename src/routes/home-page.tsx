@@ -34,7 +34,7 @@ function HomePage() {
           </CardContent>
           <CardFooter>
             <Button asChild>
-              <Link to="/demo/use-suspense">
+              <Link to="/demo/use-suspense/basic">
                 打开示例
                 <ArrowRight className="size-4" />
               </Link>
